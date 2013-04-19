@@ -783,7 +783,12 @@ public class FeedManager {
 				if (r == null) {
 					r = new Date(0);
 				}
-				return l.compareTo(r);
+				int result = l.compareTo(r);
+				if (result == 0) {
+					return lhs.getPubDate().compareTo(rhs.getPubDate());
+				} else {
+					return result;
+				}
 			}
 		});
 
